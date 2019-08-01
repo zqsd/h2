@@ -1,0 +1,26 @@
+{
+  "name": "h2",
+  "version": "0.0.1",
+  "description": "H2 geometry and spatial indexing library on a sphere",
+  "main": "Cell.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "s2",
+    "h2",
+    "lat",
+    "lng",
+    "latitude",
+    "longitude"
+  ],
+  "author": "Clément Wiz <wiz@haxx.es>",
+  "license": "ISC"
+}
