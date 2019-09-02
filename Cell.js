@@ -308,30 +308,32 @@ class Cell {
         return cell;
     }
 
+
     /*
      * finds a cell that englobes all points
      * rather slow, it's a brute force algorithm so don't abuse
      */
     static fromLatLngs(lls) {
-        const cells = lls.map(Cell.fromLatLng);
-
-        function allMinsEqual(lls, level) {
-            let min = cells[0].min(level);
+        function allIdsEqual(lls, level) {
+            let first = Cell.fromLatLng(lls[0], level);
 
             for(let i = 1; i < lls.length; i++) {
-                if(min !== cells[i].min(level))
+                const id2 = Cell.fromLatLng(lls[i], level).id;
+                if(first.id !== id2)
                     return false;
             }
 
-            return min;
+            return first;
         }
 
         for(let level = MAX_LEVEL; level > 0; level--) {
-            const min = allMinsEqual(cells, level);
-            if(min !== false) {
-                return new Cell(min);
+            const cell = allIdsEqual(lls, level);
+            if(cell !== false) {
+                return cell;
             }
         }
+
+        return false;
     }
 };
 

@@ -35,4 +35,11 @@ describe('Cell', () => {
             assert.equal(JSON.stringify(roundLatLng(cell.latLng)), '[43.604448,3.887772]');
         });
     });
+
+    describe('#fromLatLngs()', () => {
+        it('should find englobing cell', () => {
+            const cell = Cell.fromLatLngs([ [ 42.831317, -2.700071 ], [ 42.832909, -2.699551 ] ]);
+            assert.equal(cell.level, 7);
+        });
+    });
 });
